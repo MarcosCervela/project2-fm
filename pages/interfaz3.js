@@ -300,3 +300,32 @@ addBtn3.addEventListener("click", (e) => {
 
 });
 
+
+
+
+
+
+const BOX3_CONTAINER = 'box1'
+
+const panelId = /id=(.*)/.exec(window.location.search)[1]
+
+window.getAllTareas().then((res) => res.json()).then(({ data }) => {
+    console.log(data.allTareas);
+
+    data.allTareas.forEach((tareaData) => {
+        console.log('./panel', tareaData)
+        const tareaElement = document.createElement('div');
+        tareaElement.className = 'container-fluid cardbody';
+        tareaElement.id = tareaData._id;
+        tareaElement.draggable = true;
+        tareaElement.ondragstart = (event) => handleDrag(event)
+        tareaElement.innerHTML = `
+            <h3>${tareaData.titulo}</h3>
+            <p>${tareaData.descripcion}</p>
+            <button class="btn btn-danger" style="">Eliminar</button>
+            <button class="btn btn-warning m-2">Modificar</button>
+        `
+
+        document.getElementById(BOX3_CONTAINER).append(tareaElement)
+    })
+})

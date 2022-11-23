@@ -3,7 +3,7 @@ const PANEL_CONTAINER = 'panel-container'
 window.getAllPanels().then((res) => res.json()).then(({ data }) => {
     console.log(data.allPaneles);
 
-    const panelElements = data.allPaneles.forEach((panelData) => {
+    data.allPaneles.forEach((panelData) => {
         console.log('./panel', panelData)
         const panelElement = document.createElement('div');
         panelElement.classList.add('col-sm-3');
@@ -44,15 +44,4 @@ window.getAllPanels().then((res) => res.json()).then(({ data }) => {
 
         document.getElementById(PANEL_CONTAINER).append(panelElement)
     })
-    console.log('./panelElements', panelElements);
-
-    // data.allPaneles.forEach(panel => {
-    //     panelElements
-    //     // $(PANEL_CONTAINER).append(`
-    //     //     <div class="panel">
-    //     //         <h2>${panel.titulo}</h2>
-    //     //         <p>${panel.descripcion}</p>
-    //     //     </div>
-    //     // `)
-    // })
 })
