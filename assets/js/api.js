@@ -1,4 +1,3 @@
-window.fdsafdsa = 'fdsa'
 window.getAllPanels = () => fetch("https://14lr6h-4000.preview.csb.app/", {
   "headers": {
     "accept": "*/*",
@@ -37,4 +36,3 @@ window.getAllTareas = () => fetch("https://14lr6h-4000.preview.csb.app/", {
     "mode": "cors",
     "credentials": "omit"
   });
-  
